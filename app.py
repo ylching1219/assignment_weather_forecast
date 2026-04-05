@@ -70,239 +70,72 @@ def result_text(probability):
 st.markdown("""
 <style>
 @keyframes fadeSlideIn {
-    from {
-        opacity: 0;
-        transform: translateY(18px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
-
-@keyframes fadeSlideOut {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-14px);
-    }
-}
-
 @keyframes fadeIn {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
-
-@keyframes progressFill {
-    from { width: 0%; }
-    to   { width: var(--target-width); }
-}
-
 @keyframes resultPop {
     0%   { opacity: 0; transform: scale(0.93) translateY(12px); }
     60%  { transform: scale(1.02) translateY(-2px); }
     100% { opacity: 1; transform: scale(1) translateY(0); }
 }
-
-.page-enter {
-    animation: fadeSlideIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.compare-enter {
-    animation: fadeSlideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.compare-enter:nth-child(2) {
-    animation-delay: 0.07s;
-}
-
-.result-animate {
-    animation: resultPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.block-container {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    max-width: 1100px;
-}
-
+.page-enter    { animation: fadeSlideIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.compare-enter { animation: fadeSlideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.compare-enter:nth-child(2) { animation-delay: 0.07s; }
+.result-animate { animation: resultPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.block-container { padding-top: 2rem; padding-bottom: 2rem; max-width: 1100px; }
 .main-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 0.2rem;
-    color: #FFFFFF;
-    animation: fadeSlideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    font-size: 2.2rem; font-weight: 700; margin-bottom: 0.2rem;
+    color: #FFFFFF; animation: fadeSlideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-
-.sub-title {
-    color: #6b7280;
-    margin-bottom: 1.4rem;
-    font-size: 1rem;
-}
-
 .badge-btn > button {
-    display: inline-block !important;
-    padding: 0.35rem 0.8rem !important;
-    border-radius: 999px !important;
-    background: #e0f2fe !important;
-    color: #0369a1 !important;
-    font-size: 0.85rem !important;
-    font-weight: 600 !important;
-    border: none !important;
-    box-shadow: none !important;
-    width: auto !important;
-    height: auto !important;
-    margin-bottom: 0.8rem;
-    margin-top: 10px;
-    cursor: pointer;
+    display: inline-block !important; padding: 0.35rem 0.8rem !important;
+    border-radius: 999px !important; background: #e0f2fe !important;
+    color: #0369a1 !important; font-size: 0.85rem !important; font-weight: 600 !important;
+    border: none !important; box-shadow: none !important; width: auto !important;
+    height: auto !important; margin-bottom: 0.8rem; margin-top: 10px; cursor: pointer;
     transition: background 0.2s ease, transform 0.15s ease;
 }
-
-.badge-btn > button:hover {
-    background: #bae6fd !important;
-    color: #0369a1 !important;
-    transform: scale(1.04);
-}
-
+.badge-btn > button:hover { background: #bae6fd !important; color: #0369a1 !important; transform: scale(1.04); }
 .card {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 18px;
-    padding: 1.2rem 1.2rem 1rem 1.2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    margin-bottom: 1rem;
-    animation: fadeSlideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+    background: white; border: 1px solid #e5e7eb; border-radius: 18px;
+    padding: 1.2rem 1.2rem 1rem 1.2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin-bottom: 1rem; animation: fadeSlideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-
-.result-card {
-    border-radius: 20px;
-    padding: 1.3rem;
-    color: white;
-    margin-top: 1rem;
-    animation: resultPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
+.result-card { border-radius: 20px; padding: 1.3rem; color: white; margin-top: 1rem; animation: resultPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .result-card.sunny  { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
 .result-card.cloudy { background: linear-gradient(135deg, #64748b, #94a3b8); }
 .result-card.rainy  { background: linear-gradient(135deg, #0f766e, #14b8a6); }
-
 .metric-box {
-    background: #f8fafc;
-    border-radius: 14px;
-    padding: 0.85rem 1rem;
-    border: 1px solid #e2e8f0;
-    text-align: center;
-    margin: 5px;
+    background: #f8fafc; border-radius: 14px; padding: 0.85rem 1rem;
+    border: 1px solid #e2e8f0; text-align: center; margin: 5px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
-.metric-box:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-}
-
+.metric-box:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.07); }
 .metric-label { color: #64748b; font-size: 0.85rem; margin-bottom: 0.3rem; }
 .metric-value { color: #0f172a; font-size: 1.1rem; font-weight: 700; }
-
 div[data-baseweb="select"] > div,
 div[data-baseweb="input"] > div { border-radius: 12px !important; }
-
 .stButton > button {
-    width: 100%;
-    border-radius: 14px;
-    height: 3rem;
-    font-size: 1rem;
-    font-weight: 700;
-    border: none;
-    background: linear-gradient(135deg, #111827, #374151);
-    color: white;
+    width: 100%; border-radius: 14px; height: 3rem; font-size: 1rem; font-weight: 700;
+    border: none; background: linear-gradient(135deg, #111827, #374151); color: white;
     transition: transform 0.15s ease, opacity 0.15s ease;
 }
-
-.stButton > button:hover {
-    color: white;
-    border: none;
-    transform: translateY(-1px);
-    opacity: 0.92;
-}
-
-.stButton > button:active {
-    transform: scale(0.97);
-}
-
-.small-note { color: #64748b; font-size: 0.9rem; }
-
+.stButton > button:hover  { color: white; border: none; transform: translateY(-1px); opacity: 0.92; }
+.stButton > button:active { transform: scale(0.97); }
 .compare-btn > button {
-    background: white !important;
-    color: #0369a1 !important;
-    border: 1.5px solid #0369a1 !important;
-    border-radius: 999px !important;
-    height: 2.2rem !important;
-    font-size: 0.85rem !important;
-    font-weight: 600 !important;
-    padding: 0 1rem !important;
-    width: auto !important;
+    background: white !important; color: #0369a1 !important;
+    border: 1.5px solid #0369a1 !important; border-radius: 999px !important;
+    height: 2.2rem !important; font-size: 0.85rem !important; font-weight: 600 !important;
+    padding: 0 1rem !important; width: auto !important;
     transition: background 0.2s ease, transform 0.15s ease !important;
 }
-
-.compare-btn > button:hover {
-    background: #e0f2fe !important;
-    color: #0369a1 !important;
-    transform: scale(1.04) !important;
-}
-
-.compare-btn > button:active {
-    transform: scale(0.97) !important;
-}
-
-.compare-panel {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 18px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.compare-panel-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 0.3rem;
-}
-
-.compare-panel-sub {
-    font-size: 0.85rem;
-    color: #6b7280;
-    margin-bottom: 1.2rem;
-}
-
-.graph-label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #FFFFFF;
-    margin-bottom: 0.5rem;
-    text-align: center;
-}
-
-.animated-divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
-    margin: 1rem 0;
-    animation: fadeIn 0.6s ease both;
-}
-
-[data-testid="stSelectbox"]:nth-child(1) { animation: fadeSlideIn 0.35s 0.05s both; }
-[data-testid="stSelectbox"]:nth-child(2) { animation: fadeSlideIn 0.35s 0.10s both; }
-[data-testid="stNumberInput"]            { animation: fadeSlideIn 0.35s 0.15s both; }
-[data-testid="stSlider"]                 { animation: fadeSlideIn 0.35s 0.20s both; }
-
-/* Progress bar smooth */
-[data-testid="stProgress"] > div > div {
-    transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1) !important;
-}
+.compare-btn > button:hover  { background: #e0f2fe !important; color: #0369a1 !important; transform: scale(1.04) !important; }
+.compare-btn > button:active { transform: scale(0.97) !important; }
+[data-testid="stProgress"] > div > div { transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1) !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -344,6 +177,39 @@ if st.session_state.show_compare:
         st.markdown('<div class="graph-label compare-enter" style="animation-delay:0.08s">Phase 2 — XGBoost vs AdaBoost</div>', unsafe_allow_html=True)
         st.image("phase2.png", use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown("""
+    <div style="padding: 1.5rem 0 0.5rem;">
+      <p style="font-size: 13px; color: #94a3b8; text-align: center; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 1rem; font-weight: 500;">Model Evaluation Metrics</p>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;">
+        <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13); border-radius: 14px; padding: 1rem 0.75rem; text-align: center;">
+          <div style="font-size: 22px; margin-bottom: 6px;">🎯</div>
+          <div style="font-size: 13px; font-weight: 600; color: #ffffff; margin-bottom: 6px;">Accuracy</div>
+          <div style="font-size: 11px; color: #94a3b8; line-height: 1.5;">Percentage of total predictions classified correctly</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13); border-radius: 14px; padding: 1rem 0.75rem; text-align: center;">
+          <div style="font-size: 22px; margin-bottom: 6px;">✅</div>
+          <div style="font-size: 13px; font-weight: 600; color: #ffffff; margin-bottom: 6px;">Precision</div>
+          <div style="font-size: 11px; color: #94a3b8; line-height: 1.5;">How many predicted rain cases are actually correct</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13); border-radius: 14px; padding: 1rem 0.75rem; text-align: center;">
+          <div style="font-size: 22px; margin-bottom: 6px;">🔍</div>
+          <div style="font-size: 13px; font-weight: 600; color: #ffffff; margin-bottom: 6px;">Recall</div>
+          <div style="font-size: 11px; color: #94a3b8; line-height: 1.5;">How many actual rain events are correctly detected</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13); border-radius: 14px; padding: 1rem 0.75rem; text-align: center;">
+          <div style="font-size: 22px; margin-bottom: 6px;">⚖️</div>
+          <div style="font-size: 13px; font-weight: 600; color: #ffffff; margin-bottom: 6px;">F1-score</div>
+          <div style="font-size: 11px; color: #94a3b8; line-height: 1.5;">Balances precision and recall into one value</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13); border-radius: 14px; padding: 1rem 0.75rem; text-align: center;">
+          <div style="font-size: 22px; margin-bottom: 6px;">📈</div>
+          <div style="font-size: 13px; font-weight: 600; color: #ffffff; margin-bottom: 6px;">ROC-AUC</div>
+          <div style="font-size: 11px; color: #94a3b8; line-height: 1.5;">Distinguishes rain vs no rain across all thresholds</div>
+        </div>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
 
 else:
     left, right = st.columns([1.1, 0.9], gap="large")
