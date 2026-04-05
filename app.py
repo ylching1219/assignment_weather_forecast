@@ -219,12 +219,12 @@ if st.session_state.show_compare:
 
     g1, g2 = st.columns(2, gap="large")
     with g1:
-    st.markdown('<div class="graph-label">Phase 1 — Random Forest vs XGBoost</div>', unsafe_allow_html=True)
-    st.image("phase1.png", use_container_width=True)
+        st.markdown('<div class="graph-label">Phase 1 — Random Forest vs XGBoost</div>', unsafe_allow_html=True)
+        st.image("phase1.png", use_container_width=True)
 
     with g2:
-    st.markdown('<div class="graph-label">Phase 2 — XGBoost vs AdaBoost</div>', unsafe_allow_html=True)
-    st.image("phase2.png", use_container_width=True)
+        st.markdown('<div class="graph-label">Phase 2 — XGBoost vs AdaBoost</div>', unsafe_allow_html=True)
+        st.image("phase2.png", use_container_width=True)
 
     st.markdown("---")
 
