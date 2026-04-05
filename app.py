@@ -180,7 +180,7 @@ div[data-baseweb="input"] > div { border-radius: 12px !important; }
 .graph-label {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #374151;
+    color: #FFFFFF;
     margin-bottom: 0.5rem;
     text-align: center;
 }
@@ -210,12 +210,6 @@ st.markdown('<div class="main-title">Streamlit Rain Prediction App</div>', unsaf
 # Comparison panel (toggled)
 # ---------------------------
 if st.session_state.show_compare:
-    st.markdown("""
-    <div class="compare-panel">
-        <div class="compare-panel-title">Model Comparison</div>
-        <div class="compare-panel-sub">Performance metrics of XGBoost vs the alternative model across key evaluation graphs.</div>
-    </div>
-    """, unsafe_allow_html=True)
 
     g1, g2 = st.columns(2, gap="large")
     with g1:
