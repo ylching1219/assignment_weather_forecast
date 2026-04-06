@@ -143,7 +143,6 @@ div[data-baseweb="input"] > div { border-radius: 12px !important; }
     color: rgba(255,255,255,0.45); border-bottom: 1px solid rgba(255,255,255,0.08);
     overflow: hidden; word-break: break-word;
 }
-.perf-tbl th:first-child { text-align: left; }
 .perf-tbl td {
     padding: 0.5rem 0.4rem; text-align: center;
     font-size: 11.5px; color: rgba(255,255,255,0.80);
@@ -235,7 +234,6 @@ st.markdown('<div class="main-title">Streamlit Rain Prediction App</div>', unsaf
 
 if st.session_state.show_compare:
 
-    # ── Row 1: Two bar charts side by side ──────────────────────────────────
     g1, g2 = st.columns(2, gap="large")
     with g1:
         st.markdown('<div class="section-label">Phase 1 — Random Forest vs XGBoost</div>', unsafe_allow_html=True)
@@ -244,7 +242,6 @@ if st.session_state.show_compare:
         st.markdown('<div class="section-label">Phase 2 — XGBoost vs AdaBoost</div>', unsafe_allow_html=True)
         st.image("phase2.png", use_container_width=True)
 
-    # ── Row 2: Performance Comparison table (full width, same style as CV table) ──
     perf_html = (
         '<div class="tbl-wrap">'
         '<div class="tbl-title">📋 Performance Comparison — All Phases</div>'
@@ -300,7 +297,6 @@ if st.session_state.show_compare:
     )
     st.markdown(perf_html, unsafe_allow_html=True)
 
-    # ── Row 3: CV images side by side (full width) ──────────────────────────
     st.markdown('<div class="section-label" style="margin-top:1.2rem;">📊 5-Fold Cross-Validation Accuracy</div>', unsafe_allow_html=True)
     cv_img_left, cv_img_right = st.columns(2, gap="large")
     with cv_img_left:
@@ -308,7 +304,6 @@ if st.session_state.show_compare:
     with cv_img_right:
         st.image("phase2CV.png", use_container_width=True)
 
-    # ── Row 4: 5-Fold CV table (full width) ─────────────────────────────────
     folds = ["Fold 1", "Fold 2", "Fold 3", "Fold 4", "Fold 5"]
     fold_rows_html = ""
     for i, f in enumerate(folds):
@@ -343,7 +338,7 @@ if st.session_state.show_compare:
         '<th colspan="2" style="border-left:1px solid rgba(255,255,255,0.10);">Phase 2</th>'
         '</tr>'
         '<tr>'
-        '<th style="border-left:1px solid rgba(255,255,255,0.10); border-top:1px solid rgba(255,255,255,0.08);">RF</th>'
+        '<th style="border-left:1px solid rgba(255,255,255,0.10); border-top:1px solid rgba(255,255,255,0.08);">Random Forest</th>'
         '<th style="border-top:1px solid rgba(255,255,255,0.08);">XGBoost</th>'
         '<th style="border-left:1px solid rgba(255,255,255,0.10); border-top:1px solid rgba(255,255,255,0.08);">XGBoost</th>'
         '<th style="border-top:1px solid rgba(255,255,255,0.08);">AdaBoost</th>'
@@ -364,7 +359,6 @@ if st.session_state.show_compare:
     )
     st.markdown(cv_html, unsafe_allow_html=True)
 
-    # ── CV explanation ───────────────────────────────────────────────────────
     st.markdown(
         '<div class="fold-explanation">'
         '<div class="fold-icon">🔁</div>'
@@ -377,7 +371,6 @@ if st.session_state.show_compare:
         unsafe_allow_html=True
     )
 
-    # ── Metric cards ─────────────────────────────────────────────────────────
     st.markdown(
         '<div style="padding: 1.5rem 0 0.5rem;">'
         '<p style="font-size: 13px; color: #94a3b8; text-align: center; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 1rem; font-weight: 500;">Model Evaluation Metrics</p>'
