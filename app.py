@@ -235,119 +235,136 @@ st.markdown('<div class="main-title">Streamlit Rain Prediction App</div>', unsaf
 
 if st.session_state.show_compare:
 
+    # ── Row 1: Two bar charts side by side ──────────────────────────────────
     g1, g2 = st.columns(2, gap="large")
-
     with g1:
         st.markdown('<div class="section-label">Phase 1 — Random Forest vs XGBoost</div>', unsafe_allow_html=True)
         st.image("phase1.png", use_container_width=True)
-
-        perf_html = (
-            '<div class="tbl-wrap">'
-            '<div class="tbl-title">📋 Performance Comparison — All Phases</div>'
-            '<table class="perf-tbl">'
-            '<thead>'
-            '<tr>'
-            '<th>Model</th>'
-            '<th>Accuracy</th>'
-            '<th>Precision</th>'
-            '<th>Recall</th>'
-            '<th>F1</th>'
-            '<th>ROC-AUC</th>'
-            '</tr>'
-            '</thead>'
-            '<tbody>'
-            '<tr class="phase-divider-row"><td colspan="6">Phase 1 — Random Forest vs XGBoost</td></tr>'
-            '<tr>'
-            '<td class="model-name rf-dot">Random Forest</td>'
-            '<td>0.6873</td><td>0.74</td><td>0.03</td><td>0.06</td><td>0.6609</td>'
-            '</tr>'
-            '<tr class="winner-row">'
-            '<td class="model-name xgb-dot">XGBoost <span class="winner-badge">Best</span></td>'
-            '<td>0.7143</td><td>0.67</td><td>0.21</td><td>0.32</td><td>0.6985</td>'
-            '</tr>'
-            '<tr class="phase-divider-row"><td colspan="6">Phase 2 — XGBoost vs AdaBoost</td></tr>'
-            '<tr class="winner-row">'
-            '<td class="model-name xgb-dot">XGBoost <span class="winner-badge">Best</span></td>'
-            '<td>0.7143</td><td>0.67</td><td>0.21</td><td>0.32</td><td>0.6985</td>'
-            '</tr>'
-            '<tr>'
-            '<td class="model-name ada-dot">AdaBoost</td>'
-            '<td>0.6990</td><td>0.56</td><td>0.08</td><td>0.14</td><td>0.5268</td>'
-            '</tr>'
-            '</tbody>'
-            '</table>'
-            '</div>'
-        )
-        st.markdown(perf_html, unsafe_allow_html=True)
-
-        # ✅ CV images side by side below the performance table
-        st.markdown('<div class="section-label" style="margin-top:1rem;">📊 5-Fold Cross-Validation Accuracy</div>', unsafe_allow_html=True)
-        cv_img_left, cv_img_right = st.columns(2, gap="small")
-        with cv_img_left:
-            st.image("phase1CV.png", use_container_width=True)
-        with cv_img_right:
-            st.image("phase2CV.png", use_container_width=True)
-
     with g2:
         st.markdown('<div class="section-label">Phase 2 — XGBoost vs AdaBoost</div>', unsafe_allow_html=True)
         st.image("phase2.png", use_container_width=True)
 
-        folds = ["Fold 1", "Fold 2", "Fold 3", "Fold 4", "Fold 5"]
-        fold_rows_html = ""
-        for i, f in enumerate(folds):
-            best_p1 = max(rf_cv[i], xgb_cv[i])
-            best_p2 = max(xgb_cv[i], ada_cv[i])
-            rf_star  = '<span class="best-marker">▲</span>' if abs(rf_cv[i]  - best_p1) < 1e-9 else ""
-            x1_star  = '<span class="best-marker">▲</span>' if abs(xgb_cv[i] - best_p1) < 1e-9 else ""
-            x2_star  = '<span class="best-marker">▲</span>' if abs(xgb_cv[i] - best_p2) < 1e-9 else ""
-            ada_star = '<span class="best-marker">▲</span>' if abs(ada_cv[i] - best_p2) < 1e-9 else ""
-            fold_rows_html += (
-                "<tr>"
-                + '<td class="fold-name">' + f + "</td>"
-                + '<td class="rf-col">'  + "{:.6f}".format(rf_cv[i])  + rf_star  + "</td>"
-                + '<td class="xgb-col">' + "{:.6f}".format(xgb_cv[i]) + x1_star  + "</td>"
-                + '<td class="xgb-col">' + "{:.6f}".format(xgb_cv[i]) + x2_star  + "</td>"
-                + '<td class="ada-col">' + "{:.6f}".format(ada_cv[i]) + ada_star + "</td>"
-                + "</tr>"
-            )
+    # ── Row 2: Performance Comparison table (full width, same style as CV table) ──
+    perf_html = (
+        '<div class="tbl-wrap">'
+        '<div class="tbl-title">📋 Performance Comparison — All Phases</div>'
+        '<table class="perf-tbl">'
+        '<thead>'
+        '<tr>'
+        '<th>Model</th>'
+        '<th>Accuracy</th>'
+        '<th>Precision</th>'
+        '<th>Recall</th>'
+        '<th>F1</th>'
+        '<th>ROC-AUC</th>'
+        '</tr>'
+        '</thead>'
+        '<tbody>'
+        '<tr class="phase-divider-row"><td colspan="6">Phase 1 — Random Forest vs XGBoost</td></tr>'
+        '<tr>'
+        '<td class="model-name rf-dot">Random Forest</td>'
+        '<td class="rf-col">0.6873</td>'
+        '<td class="rf-col">0.74</td>'
+        '<td class="rf-col">0.03</td>'
+        '<td class="rf-col">0.06</td>'
+        '<td class="rf-col">0.6609</td>'
+        '</tr>'
+        '<tr class="winner-row">'
+        '<td class="model-name xgb-dot">XGBoost <span class="winner-badge">Best</span></td>'
+        '<td class="xgb-col">0.7143</td>'
+        '<td class="xgb-col">0.67</td>'
+        '<td class="xgb-col">0.21</td>'
+        '<td class="xgb-col">0.32</td>'
+        '<td class="xgb-col">0.6985</td>'
+        '</tr>'
+        '<tr class="phase-divider-row"><td colspan="6">Phase 2 — XGBoost vs AdaBoost</td></tr>'
+        '<tr class="winner-row">'
+        '<td class="model-name xgb-dot">XGBoost <span class="winner-badge">Best</span></td>'
+        '<td class="xgb-col">0.7143</td>'
+        '<td class="xgb-col">0.67</td>'
+        '<td class="xgb-col">0.21</td>'
+        '<td class="xgb-col">0.32</td>'
+        '<td class="xgb-col">0.6985</td>'
+        '</tr>'
+        '<tr>'
+        '<td class="model-name ada-dot">AdaBoost</td>'
+        '<td class="ada-col">0.6990</td>'
+        '<td class="ada-col">0.56</td>'
+        '<td class="ada-col">0.08</td>'
+        '<td class="ada-col">0.14</td>'
+        '<td class="ada-col">0.5268</td>'
+        '</tr>'
+        '</tbody>'
+        '</table>'
+        '</div>'
+    )
+    st.markdown(perf_html, unsafe_allow_html=True)
 
-        avg_rf  = sum(rf_cv)  / len(rf_cv)
-        avg_xgb = sum(xgb_cv) / len(xgb_cv)
-        avg_ada = sum(ada_cv)  / len(ada_cv)
+    # ── Row 3: CV images side by side (full width) ──────────────────────────
+    st.markdown('<div class="section-label" style="margin-top:1.2rem;">📊 5-Fold Cross-Validation Accuracy</div>', unsafe_allow_html=True)
+    cv_img_left, cv_img_right = st.columns(2, gap="large")
+    with cv_img_left:
+        st.image("phase1CV.png", use_container_width=True)
+    with cv_img_right:
+        st.image("phase2CV.png", use_container_width=True)
 
-        cv_html = (
-            '<div class="tbl-wrap">'
-            '<div class="tbl-title">🔁 5-Fold CV Accuracy — All Phases</div>'
-            '<table class="perf-tbl">'
-            '<thead>'
-            '<tr>'
-            '<th rowspan="2" style="width:18%; vertical-align:bottom;">Fold</th>'
-            '<th colspan="2" style="border-left:1px solid rgba(255,255,255,0.10);">Phase 1</th>'
-            '<th colspan="2" style="border-left:1px solid rgba(255,255,255,0.10);">Phase 2</th>'
-            '</tr>'
-            '<tr>'
-            '<th style="border-left:1px solid rgba(255,255,255,0.10); border-top:1px solid rgba(255,255,255,0.08);">RF</th>'
-            '<th style="border-top:1px solid rgba(255,255,255,0.08);">XGBoost</th>'
-            '<th style="border-left:1px solid rgba(255,255,255,0.10); border-top:1px solid rgba(255,255,255,0.08);">XGBoost</th>'
-            '<th style="border-top:1px solid rgba(255,255,255,0.08);">AdaBoost</th>'
-            '</tr>'
-            '</thead>'
-            '<tbody>'
-            + fold_rows_html
-            + '<tr class="avg-row">'
-            + '<td class="fold-name">Average</td>'
-            + '<td class="rf-col">'  + "{:.6f}".format(avg_rf)  + "</td>"
-            + '<td class="xgb-col">' + "{:.6f}".format(avg_xgb) + "</td>"
-            + '<td class="xgb-col">' + "{:.6f}".format(avg_xgb) + "</td>"
-            + '<td class="ada-col">' + "{:.6f}".format(avg_ada) + "</td>"
+    # ── Row 4: 5-Fold CV table (full width) ─────────────────────────────────
+    folds = ["Fold 1", "Fold 2", "Fold 3", "Fold 4", "Fold 5"]
+    fold_rows_html = ""
+    for i, f in enumerate(folds):
+        best_p1 = max(rf_cv[i], xgb_cv[i])
+        best_p2 = max(xgb_cv[i], ada_cv[i])
+        rf_star  = '<span class="best-marker">▲</span>' if abs(rf_cv[i]  - best_p1) < 1e-9 else ""
+        x1_star  = '<span class="best-marker">▲</span>' if abs(xgb_cv[i] - best_p1) < 1e-9 else ""
+        x2_star  = '<span class="best-marker">▲</span>' if abs(xgb_cv[i] - best_p2) < 1e-9 else ""
+        ada_star = '<span class="best-marker">▲</span>' if abs(ada_cv[i] - best_p2) < 1e-9 else ""
+        fold_rows_html += (
+            "<tr>"
+            + '<td class="fold-name">' + f + "</td>"
+            + '<td class="rf-col">'  + "{:.6f}".format(rf_cv[i])  + rf_star  + "</td>"
+            + '<td class="xgb-col">' + "{:.6f}".format(xgb_cv[i]) + x1_star  + "</td>"
+            + '<td class="xgb-col">' + "{:.6f}".format(xgb_cv[i]) + x2_star  + "</td>"
+            + '<td class="ada-col">' + "{:.6f}".format(ada_cv[i]) + ada_star + "</td>"
             + "</tr>"
-            + "</tbody>"
-            + "</table>"
-            + "</div>"
         )
-    # ✅ CV table now sits below both columns (below the side-by-side CV images)
+
+    avg_rf  = sum(rf_cv)  / len(rf_cv)
+    avg_xgb = sum(xgb_cv) / len(xgb_cv)
+    avg_ada = sum(ada_cv) / len(ada_cv)
+
+    cv_html = (
+        '<div class="tbl-wrap">'
+        '<div class="tbl-title">🔁 5-Fold CV Accuracy — All Phases</div>'
+        '<table class="perf-tbl">'
+        '<thead>'
+        '<tr>'
+        '<th rowspan="2" style="width:18%; vertical-align:bottom;">Fold</th>'
+        '<th colspan="2" style="border-left:1px solid rgba(255,255,255,0.10);">Phase 1</th>'
+        '<th colspan="2" style="border-left:1px solid rgba(255,255,255,0.10);">Phase 2</th>'
+        '</tr>'
+        '<tr>'
+        '<th style="border-left:1px solid rgba(255,255,255,0.10); border-top:1px solid rgba(255,255,255,0.08);">RF</th>'
+        '<th style="border-top:1px solid rgba(255,255,255,0.08);">XGBoost</th>'
+        '<th style="border-left:1px solid rgba(255,255,255,0.10); border-top:1px solid rgba(255,255,255,0.08);">XGBoost</th>'
+        '<th style="border-top:1px solid rgba(255,255,255,0.08);">AdaBoost</th>'
+        '</tr>'
+        '</thead>'
+        '<tbody>'
+        + fold_rows_html
+        + '<tr class="avg-row">'
+        + '<td class="fold-name">Average</td>'
+        + '<td class="rf-col">'  + "{:.6f}".format(avg_rf)  + "</td>"
+        + '<td class="xgb-col">' + "{:.6f}".format(avg_xgb) + "</td>"
+        + '<td class="xgb-col">' + "{:.6f}".format(avg_xgb) + "</td>"
+        + '<td class="ada-col">' + "{:.6f}".format(avg_ada) + "</td>"
+        + "</tr>"
+        + "</tbody>"
+        + "</table>"
+        + "</div>"
+    )
     st.markdown(cv_html, unsafe_allow_html=True)
 
+    # ── CV explanation ───────────────────────────────────────────────────────
     st.markdown(
         '<div class="fold-explanation">'
         '<div class="fold-icon">🔁</div>'
@@ -360,6 +377,7 @@ if st.session_state.show_compare:
         unsafe_allow_html=True
     )
 
+    # ── Metric cards ─────────────────────────────────────────────────────────
     st.markdown(
         '<div style="padding: 1.5rem 0 0.5rem;">'
         '<p style="font-size: 13px; color: #94a3b8; text-align: center; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 1rem; font-weight: 500;">Model Evaluation Metrics</p>'
