@@ -198,6 +198,29 @@ div[data-baseweb="input"] > div { border-radius: 12px !important; }
 .phase-sep {
     border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 0.3rem 0;
 }
+.algo-cards-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    margin-bottom: 1.8rem; animation: fadeSlideIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.algo-card {
+    border-radius: 16px; padding: 1.2rem 1.1rem;
+    border: 1px solid rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.05);
+    display: flex; flex-direction: column; gap: 0.5rem;
+}
+.algo-card-icon {
+    font-size: 1.5rem; margin-bottom: 0.2rem;
+}
+.algo-card-title {
+    font-size: 14px; font-weight: 700; color: #ffffff; margin: 0;
+}
+.algo-card-dot {
+    display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+    margin-right: 6px; vertical-align: middle; flex-shrink: 0;
+}
+.algo-card-desc {
+    font-size: 12.5px; color: rgba(255,255,255,0.70); line-height: 1.6; margin: 0;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -233,6 +256,31 @@ with header_right:
 st.markdown('<div class="main-title">Streamlit Rain Prediction App</div>', unsafe_allow_html=True)
 
 if st.session_state.show_compare:
+
+    st.markdown(
+        '<div class="algo-cards-grid">'
+
+        '<div class="algo-card">'
+        '<div class="algo-card-icon">🌲</div>'
+        '<p class="algo-card-title"><span class="algo-card-dot" style="background:#f59e0b;"></span>Random Forest</p>'
+        '<p class="algo-card-desc">Random Forest constructs multiple decision trees using random subsets of data and features, then aggregates their predictions to improve accuracy and reduce overfitting.</p>'
+        '</div>'
+
+        '<div class="algo-card">'
+        '<div class="algo-card-icon">⚡</div>'
+        '<p class="algo-card-title"><span class="algo-card-dot" style="background:#38bdf8;"></span>XGBoost</p>'
+        '<p class="algo-card-desc">XGBoost is a gradient boosting algorithm that builds trees sequentially to correct previous prediction errors, improving model performance and generalization.</p>'
+        '</div>'
+
+        '<div class="algo-card">'
+        '<div class="algo-card-icon">🔁</div>'
+        '<p class="algo-card-title"><span class="algo-card-dot" style="background:#fb923c;"></span>AdaBoost</p>'
+        '<p class="algo-card-desc">AdaBoost improves prediction accuracy by assigning higher importance to misclassified samples during training and iteratively refining the model.</p>'
+        '</div>'
+
+        '</div>',
+        unsafe_allow_html=True
+    )
 
     g1, g2 = st.columns(2, gap="large")
     with g1:
