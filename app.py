@@ -73,10 +73,6 @@ st.markdown("""
     from { opacity: 0; transform: translateY(18px); }
     to   { opacity: 1; transform: translateY(0); }
 }
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
 @keyframes resultPop {
     0%   { opacity: 0; transform: scale(0.93) translateY(12px); }
     60%  { transform: scale(1.02) translateY(-2px); }
@@ -85,7 +81,6 @@ st.markdown("""
 .page-enter    { animation: fadeSlideIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .compare-enter { animation: fadeSlideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .compare-enter:nth-child(2) { animation-delay: 0.07s; }
-.result-animate { animation: resultPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .block-container { padding-top: 2rem; padding-bottom: 2rem; max-width: 1100px; }
 .main-title {
     font-size: 2.2rem; font-weight: 700; margin-bottom: 0.2rem;
@@ -100,11 +95,6 @@ st.markdown("""
     transition: background 0.2s ease, transform 0.15s ease;
 }
 .badge-btn > button:hover { background: #bae6fd !important; color: #0369a1 !important; transform: scale(1.04); }
-.card {
-    background: white; border: 1px solid #e5e7eb; border-radius: 18px;
-    padding: 1.2rem 1.2rem 1rem 1.2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    margin-bottom: 1rem; animation: fadeSlideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
 .result-card { border-radius: 20px; padding: 1.3rem; color: white; margin-top: 1rem; animation: resultPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
 .result-card.sunny  { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
 .result-card.cloudy { background: linear-gradient(135deg, #64748b, #94a3b8); }
@@ -136,6 +126,30 @@ div[data-baseweb="input"] > div { border-radius: 12px !important; }
 .compare-btn > button:hover  { background: #e0f2fe !important; color: #0369a1 !important; transform: scale(1.04) !important; }
 .compare-btn > button:active { transform: scale(0.97) !important; }
 [data-testid="stProgress"] > div > div { transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1) !important; }
+
+.cv-image-label {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.9rem;
+    margin-bottom: 0.35rem;
+}
+.fold-explanation {
+    margin-top: 1.6rem;
+    padding: 1.1rem 1.4rem;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.10);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    animation: fadeSlideIn 0.5s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.fold-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+.fold-text { font-size: 13.5px; line-height: 1.65; color: rgba(255,255,255,0.75); }
+.fold-text strong { color: #ffffff; font-weight: 700; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -170,13 +184,31 @@ st.markdown('<div class="main-title">Streamlit Rain Prediction App</div>', unsaf
 if st.session_state.show_compare:
     st.markdown('<div class="compare-enter">', unsafe_allow_html=True)
     g1, g2 = st.columns(2, gap="large")
+
     with g1:
         st.markdown('<div class="graph-label compare-enter">Phase 1 — Random Forest vs XGBoost</div>', unsafe_allow_html=True)
         st.image("phase1.png", use_container_width=True)
+        st.markdown('<div class="cv-image-label">📊 5-Fold Cross-Validation Accuracy</div>', unsafe_allow_html=True)
+        st.image("phase1CV.png", use_container_width=True)
+
     with g2:
         st.markdown('<div class="graph-label compare-enter" style="animation-delay:0.08s">Phase 2 — XGBoost vs AdaBoost</div>', unsafe_allow_html=True)
         st.image("phase2.png", use_container_width=True)
+        st.markdown('<div class="cv-image-label">📊 5-Fold Cross-Validation Accuracy</div>', unsafe_allow_html=True)
+        st.image("phase2CV.png", use_container_width=True)
+
     st.markdown('</div>', unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="fold-explanation">
+        <div class="fold-icon">🔁</div>
+        <div class="fold-text">
+            <strong>5-Fold Cross-Validation</strong> checks model reliability by training and testing
+            the model on five different data splits and averaging the results to ensure
+            consistent prediction performance.
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
     st.markdown("""
     <div style="padding: 1.5rem 0 0.5rem;">
