@@ -278,14 +278,14 @@ if st.session_state.show_compare:
             '</table>'
             '</div>'
         )
+        st.markdown('<div class="section-label" style="margin-top:1rem;">📊 5-Fold Cross-Validation Accuracy</div>', unsafe_allow_html=True)
+        st.image("phase1CV.png", use_container_width=True)
+        st.image("phase2CV.png", use_container_width=True)
         st.markdown(perf_html, unsafe_allow_html=True)
 
     with g2:
         st.markdown('<div class="section-label">Phase 2 — XGBoost vs AdaBoost</div>', unsafe_allow_html=True)
         st.image("phase2.png", use_container_width=True)
-        st.markdown('<div class="section-label" style="margin-top:1rem;">📊 5-Fold Cross-Validation Accuracy</div>', unsafe_allow_html=True)
-        st.image("phase1CV.png", use_container_width=True)
-        st.image("phase2CV.png", use_container_width=True)
 
         folds = ["Fold 1", "Fold 2", "Fold 3", "Fold 4", "Fold 5"]
         fold_rows_html = ""
