@@ -278,10 +278,12 @@ if st.session_state.show_compare:
             '</table>'
             '</div>'
         )
+        st.markdown(perf_html, unsafe_allow_html=True)
+
+        # ✅ CV images now sit directly below the performance table in the LEFT column
         st.markdown('<div class="section-label" style="margin-top:1rem;">📊 5-Fold Cross-Validation Accuracy</div>', unsafe_allow_html=True)
         st.image("phase1CV.png", use_container_width=True)
         st.image("phase2CV.png", use_container_width=True)
-        st.markdown(perf_html, unsafe_allow_html=True)
 
     with g2:
         st.markdown('<div class="section-label">Phase 2 — XGBoost vs AdaBoost</div>', unsafe_allow_html=True)
