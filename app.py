@@ -126,100 +126,67 @@ div[data-baseweb="input"] > div { border-radius: 12px !important; }
 .compare-btn > button:hover  { background: #e0f2fe !important; color: #0369a1 !important; transform: scale(1.04) !important; }
 .compare-btn > button:active { transform: scale(0.97) !important; }
 [data-testid="stProgress"] > div > div { transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1) !important; }
-
 .cv-image-label {
-    font-size: 11.5px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.45);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-top: 0.9rem;
-    margin-bottom: 0.35rem;
+    font-size: 11.5px; font-weight: 600; color: rgba(255,255,255,0.45);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-top: 0.9rem; margin-bottom: 0.35rem;
 }
 .tbl-wrap {
-    margin-top: 0.8rem;
-    border-radius: 14px;
-    overflow: hidden;
+    margin-top: 0.8rem; border-radius: 14px; overflow: hidden;
     border: 1px solid rgba(255,255,255,0.10);
     animation: fadeSlideIn 0.4s 0.1s cubic-bezier(0.22,1,0.36,1) both;
 }
 .tbl-title {
-    background: rgba(255,255,255,0.08);
-    padding: 0.55rem 0.9rem;
-    font-size: 11.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.08); padding: 0.55rem 0.9rem;
+    font-size: 11.5px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; color: rgba(255,255,255,0.55);
 }
-.perf-tbl {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-}
-.perf-tbl thead tr {
-    background: rgba(255,255,255,0.05);
-}
+.perf-tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
+.perf-tbl thead tr { background: rgba(255,255,255,0.05); }
 .perf-tbl th {
-    padding: 0.5rem 0.6rem;
-    text-align: center;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: rgba(255,255,255,0.45);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 0.5rem 0.6rem; text-align: center; font-size: 11px;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.45); border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .perf-tbl th:first-child { text-align: left; }
 .perf-tbl td {
-    padding: 0.55rem 0.6rem;
-    text-align: center;
-    font-size: 12.5px;
-    color: rgba(255,255,255,0.80);
+    padding: 0.55rem 0.6rem; text-align: center;
+    font-size: 12.5px; color: rgba(255,255,255,0.80);
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 .perf-tbl td:first-child { text-align: left; }
 .perf-tbl tbody tr:last-child td { border-bottom: none; }
 .perf-tbl tbody tr:hover td { background: rgba(255,255,255,0.03); }
-
 .winner-row td { color: #ffffff !important; font-weight: 600; background: rgba(255,255,255,0.04); }
 .winner-badge {
-    display: inline-block;
-    margin-left: 5px;
-    padding: 1px 7px;
-    border-radius: 999px;
-    font-size: 10px;
-    font-weight: 700;
-    background: rgba(250,204,21,0.20);
-    color: #facc15;
-    vertical-align: middle;
+    display: inline-block; margin-left: 5px; padding: 1px 7px;
+    border-radius: 999px; font-size: 10px; font-weight: 700;
+    background: rgba(250,204,21,0.20); color: #facc15; vertical-align: middle;
 }
 .model-name { font-weight: 600; color: #ffffff !important; }
 .rf-dot::before  { content: "● "; color: #f59e0b; font-size: 10px; }
 .xgb-dot::before { content: "● "; color: #38bdf8; font-size: 10px; }
 .ada-dot::before { content: "● "; color: #fb923c; font-size: 10px; }
-
+.phase-divider td {
+    background: rgba(255,255,255,0.03) !important;
+    padding: 0.3rem 0.6rem !important;
+    font-size: 10px !important; font-weight: 700 !important;
+    text-transform: uppercase !important; letter-spacing: 0.07em !important;
+    color: rgba(255,255,255,0.35) !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+}
 .fold-name { font-weight: 600; color: rgba(255,255,255,0.70) !important; font-size: 12px; }
 .rf-col  { color: #f59e0b !important; font-weight: 500; }
 .xgb-col { color: #38bdf8 !important; font-weight: 500; }
 .ada-col { color: #fb923c !important; font-weight: 500; }
 .best-val { font-size: 9px; vertical-align: super; opacity: 0.8; }
 .avg-row td {
-    font-weight: 700 !important;
-    background: rgba(255,255,255,0.06) !important;
-    border-top: 1px solid rgba(255,255,255,0.12) !important;
-    color: #ffffff !important;
+    font-weight: 700 !important; background: rgba(255,255,255,0.06) !important;
+    border-top: 1px solid rgba(255,255,255,0.12) !important; color: #ffffff !important;
 }
-
 .fold-explanation {
-    margin-top: 1.6rem;
-    padding: 1.1rem 1.4rem;
-    border-radius: 16px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.10);
-    display: flex;
-    align-items: flex-start;
-    gap: 0.8rem;
+    margin-top: 1.6rem; padding: 1.1rem 1.4rem; border-radius: 16px;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.10);
+    display: flex; align-items: flex-start; gap: 0.8rem;
     animation: fadeSlideIn 0.5s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 .fold-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
@@ -232,6 +199,10 @@ if "show_compare" not in st.session_state:
     st.session_state.show_compare = False
 if "prediction_result" not in st.session_state:
     st.session_state.prediction_result = None
+
+ada_cv  = [0.69848577, 0.70001027, 0.69886609, 0.69854152, 0.69929924]
+xgb_cv  = [0.71444604, 0.71415083, 0.71471149, 0.71460569, 0.71456021]
+rf_cv   = [0.68861236, 0.68816033, 0.68890710, 0.68939881, 0.68755748]
 
 header_left, header_right = st.columns([3, 1])
 
@@ -256,126 +227,6 @@ with header_right:
 
 st.markdown('<div class="main-title">Streamlit Rain Prediction App</div>', unsafe_allow_html=True)
 
-ada_cv  = [0.69848577, 0.70001027, 0.69886609, 0.69854152, 0.69929924]
-xgb_cv  = [0.71444604, 0.71415083, 0.71471149, 0.71460569, 0.71456021]
-rf_cv   = [0.68861236, 0.68816033, 0.68890710, 0.68939881, 0.68755748]
-
-def perf_table_phase1():
-    return """
-    <div class="tbl-wrap">
-      <div class="tbl-title">📋 Phase 1 — Performance Comparison</div>
-      <table class="perf-tbl">
-        <thead>
-          <tr>
-            <th>Model</th><th>Test Accuracy</th><th>Precision</th>
-            <th>Recall</th><th>F1-score</th><th>ROC-AUC</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="model-name rf-dot">Random Forest</td>
-            <td>0.6873</td><td>0.74</td><td>0.03</td><td>0.06</td><td>0.6609</td>
-          </tr>
-          <tr class="winner-row">
-            <td class="model-name xgb-dot">XGBoost <span class="winner-badge">★ Best</span></td>
-            <td>0.7143</td><td>0.67</td><td>0.21</td><td>0.32</td><td>0.6985</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>"""
-
-def perf_table_phase2():
-    return """
-    <div class="tbl-wrap">
-      <div class="tbl-title">📋 Phase 2 — Performance Comparison</div>
-      <table class="perf-tbl">
-        <thead>
-          <tr>
-            <th>Model</th><th>Test Accuracy</th><th>Precision</th>
-            <th>Recall</th><th>F1-score</th><th>ROC-AUC</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="winner-row">
-            <td class="model-name xgb-dot">XGBoost <span class="winner-badge">★ Best</span></td>
-            <td>0.7143</td><td>0.67</td><td>0.21</td><td>0.32</td><td>0.6985</td>
-          </tr>
-          <tr>
-            <td class="model-name ada-dot">AdaBoost</td>
-            <td>0.6990</td><td>0.56</td><td>0.08</td><td>0.14</td><td>0.5268</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>"""
-
-def cv_fold_table_phase1():
-    folds = ["Fold 1", "Fold 2", "Fold 3", "Fold 4", "Fold 5"]
-    rows = ""
-    for i, f in enumerate(folds):
-        best_val = max(rf_cv[i], xgb_cv[i])
-        def fmt(v):
-            star = ' <span class="best-val">▲</span>' if abs(v - best_val) < 1e-9 else ""
-            return f"{v:.6f}{star}"
-        rows += f"""
-        <tr>
-          <td class="fold-name">{f}</td>
-          <td class="rf-col">{fmt(rf_cv[i])}</td>
-          <td class="xgb-col">{fmt(xgb_cv[i])}</td>
-        </tr>"""
-    avg_rf  = sum(rf_cv)  / len(rf_cv)
-    avg_xgb = sum(xgb_cv) / len(xgb_cv)
-    return f"""
-    <div class="tbl-wrap" style="margin-top:0.7rem;">
-      <div class="tbl-title">🔁 5-Fold CV Accuracy — Phase 1</div>
-      <table class="perf-tbl">
-        <thead>
-          <tr><th>Fold</th><th>Random Forest</th><th>XGBoost</th></tr>
-        </thead>
-        <tbody>
-          {rows}
-          <tr class="avg-row">
-            <td class="fold-name">Average</td>
-            <td class="rf-col">{avg_rf:.6f}</td>
-            <td class="xgb-col">{avg_xgb:.6f}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>"""
-
-def cv_fold_table_phase2():
-    folds = ["Fold 1", "Fold 2", "Fold 3", "Fold 4", "Fold 5"]
-    rows = ""
-    for i, f in enumerate(folds):
-        best_val = max(xgb_cv[i], ada_cv[i])
-        def fmt(v):
-            star = ' <span class="best-val">▲</span>' if abs(v - best_val) < 1e-9 else ""
-            return f"{v:.6f}{star}"
-        rows += f"""
-        <tr>
-          <td class="fold-name">{f}</td>
-          <td class="xgb-col">{fmt(xgb_cv[i])}</td>
-          <td class="ada-col">{fmt(ada_cv[i])}</td>
-        </tr>"""
-    avg_xgb = sum(xgb_cv) / len(xgb_cv)
-    avg_ada = sum(ada_cv)  / len(ada_cv)
-    return f"""
-    <div class="tbl-wrap" style="margin-top:0.7rem;">
-      <div class="tbl-title">🔁 5-Fold CV Accuracy — Phase 2</div>
-      <table class="perf-tbl">
-        <thead>
-          <tr><th>Fold</th><th>XGBoost</th><th>AdaBoost</th></tr>
-        </thead>
-        <tbody>
-          {rows}
-          <tr class="avg-row">
-            <td class="fold-name">Average</td>
-            <td class="xgb-col">{avg_xgb:.6f}</td>
-            <td class="ada-col">{avg_ada:.6f}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>"""
-
 if st.session_state.show_compare:
     st.markdown('<div class="compare-enter">', unsafe_allow_html=True)
     g1, g2 = st.columns(2, gap="large")
@@ -383,18 +234,110 @@ if st.session_state.show_compare:
     with g1:
         st.markdown('<div class="graph-label compare-enter">Phase 1 — Random Forest vs XGBoost</div>', unsafe_allow_html=True)
         st.image("phase1.png", use_container_width=True)
-        st.markdown(perf_table_phase1(), unsafe_allow_html=True)
-        st.markdown('<div class="cv-image-label">📊 5-Fold Cross-Validation Accuracy</div>', unsafe_allow_html=True)
-        st.image("phase1CV.png", use_container_width=True)
-        st.markdown(cv_fold_table_phase1(), unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="tbl-wrap">
+          <div class="tbl-title">📋 Performance Comparison — All Phases</div>
+          <table class="perf-tbl">
+            <thead>
+              <tr>
+                <th>Model</th><th>Test Accuracy</th><th>Precision</th>
+                <th>Recall</th><th>F1-score</th><th>ROC-AUC</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="phase-divider"><td colspan="6">Phase 1 — Random Forest vs XGBoost</td></tr>
+              <tr>
+                <td class="model-name rf-dot">Random Forest</td>
+                <td>0.6873</td><td>0.74</td><td>0.03</td><td>0.06</td><td>0.6609</td>
+              </tr>
+              <tr class="winner-row">
+                <td class="model-name xgb-dot">XGBoost <span class="winner-badge">★ Best</span></td>
+                <td>0.7143</td><td>0.67</td><td>0.21</td><td>0.32</td><td>0.6985</td>
+              </tr>
+              <tr class="phase-divider"><td colspan="6">Phase 2 — XGBoost vs AdaBoost</td></tr>
+              <tr class="winner-row">
+                <td class="model-name xgb-dot">XGBoost <span class="winner-badge">★ Best</span></td>
+                <td>0.7143</td><td>0.67</td><td>0.21</td><td>0.32</td><td>0.6985</td>
+              </tr>
+              <tr>
+                <td class="model-name ada-dot">AdaBoost</td>
+                <td>0.6990</td><td>0.56</td><td>0.08</td><td>0.14</td><td>0.5268</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        """, unsafe_allow_html=True)
 
     with g2:
         st.markdown('<div class="graph-label compare-enter" style="animation-delay:0.08s">Phase 2 — XGBoost vs AdaBoost</div>', unsafe_allow_html=True)
         st.image("phase2.png", use_container_width=True)
-        st.markdown(perf_table_phase2(), unsafe_allow_html=True)
-        st.markdown('<div class="cv-image-label">📊 5-Fold Cross-Validation Accuracy</div>', unsafe_allow_html=True)
+
+        folds = ["Fold 1", "Fold 2", "Fold 3", "Fold 4", "Fold 5"]
+        fold_rows = ""
+        for i, f in enumerate(folds):
+            best_p1 = max(rf_cv[i], xgb_cv[i])
+            best_p2 = max(xgb_cv[i], ada_cv[i])
+            def fmt_rf(v):
+                star = ' <span class="best-val">▲</span>' if abs(v - best_p1) < 1e-9 else ""
+                return f"{v:.6f}{star}"
+            def fmt_xgb_p1(v):
+                star = ' <span class="best-val">▲</span>' if abs(v - best_p1) < 1e-9 else ""
+                return f"{v:.6f}{star}"
+            def fmt_xgb_p2(v):
+                star = ' <span class="best-val">▲</span>' if abs(v - best_p2) < 1e-9 else ""
+                return f"{v:.6f}{star}"
+            def fmt_ada(v):
+                star = ' <span class="best-val">▲</span>' if abs(v - best_p2) < 1e-9 else ""
+                return f"{v:.6f}{star}"
+            fold_rows += f"""
+            <tr>
+              <td class="fold-name">{f}</td>
+              <td class="rf-col">{fmt_rf(rf_cv[i])}</td>
+              <td class="xgb-col">{fmt_xgb_p1(xgb_cv[i])}</td>
+              <td class="xgb-col">{fmt_xgb_p2(xgb_cv[i])}</td>
+              <td class="ada-col">{fmt_ada(ada_cv[i])}</td>
+            </tr>"""
+
+        avg_rf  = sum(rf_cv)  / len(rf_cv)
+        avg_xgb = sum(xgb_cv) / len(xgb_cv)
+        avg_ada = sum(ada_cv)  / len(ada_cv)
+
+        st.markdown(f"""
+        <div class="tbl-wrap" style="margin-top:0.7rem;">
+          <div class="tbl-title">🔁 5-Fold CV Accuracy — All Phases</div>
+          <table class="perf-tbl">
+            <thead>
+              <tr>
+                <th rowspan="2">Fold</th>
+                <th colspan="2" style="border-bottom:none; border-left:1px solid rgba(255,255,255,0.08);">Phase 1</th>
+                <th colspan="2" style="border-bottom:none; border-left:1px solid rgba(255,255,255,0.08);">Phase 2</th>
+              </tr>
+              <tr>
+                <th style="border-left:1px solid rgba(255,255,255,0.08);">Random Forest</th>
+                <th>XGBoost</th>
+                <th style="border-left:1px solid rgba(255,255,255,0.08);">XGBoost</th>
+                <th>AdaBoost</th>
+              </tr>
+            </thead>
+            <tbody>
+              {fold_rows}
+              <tr class="avg-row">
+                <td class="fold-name">Average</td>
+                <td class="rf-col">{avg_rf:.6f}</td>
+                <td class="xgb-col">{avg_xgb:.6f}</td>
+                <td class="xgb-col">{avg_xgb:.6f}</td>
+                <td class="ada-col">{avg_ada:.6f}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown('<div class="cv-image-label">📊 Phase 1 — 5-Fold Cross-Validation Accuracy</div>', unsafe_allow_html=True)
+        st.image("phase1CV.png", use_container_width=True)
+        st.markdown('<div class="cv-image-label">📊 Phase 2 — 5-Fold Cross-Validation Accuracy</div>', unsafe_allow_html=True)
         st.image("phase2CV.png", use_container_width=True)
-        st.markdown(cv_fold_table_phase2(), unsafe_allow_html=True)
 
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -409,7 +352,6 @@ if st.session_state.show_compare:
     </div>
     """, unsafe_allow_html=True)
 
-    # ── Metric legend ────────────────────────────────────────────────────────
     st.markdown("""
     <div style="padding: 1.5rem 0 0.5rem;">
       <p style="font-size: 13px; color: #94a3b8; text-align: center; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 1rem; font-weight: 500;">Model Evaluation Metrics</p>
